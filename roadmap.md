@@ -1,0 +1,3 @@
+- [ ] Establish GeneMirror visual tokens and shell
+- [ ] Add mock data and interactive application screens
+- [ ] Validate build and live preview interactions
