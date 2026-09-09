@@ -43,3 +43,6 @@ data/interim/annotation_cache/
 data/processed/*.csv
 data/interim/*.csv
 data/interim/annotation_cache/
+# GeneMirror generated model artifacts
+backend/modeling/artifacts/*.pkl
+backend/modeling/artifacts/*.json
