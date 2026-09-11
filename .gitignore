@@ -50,3 +50,6 @@ backend/modeling/artifacts/*.json
 # GeneMirror Sprint 5 generated explainability artifacts
 backend/explainability/artifacts/*.pkl
 backend/explainability/artifacts/*.json
+
+# GeneMirror Sprint 6 protein context cache
+data/interim/protein_context_cache/
