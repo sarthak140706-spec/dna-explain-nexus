@@ -14,11 +14,16 @@ export type Gene = {
 export type Variant = {
   id: string;
   gene: string;
+
+  chromosome: string;
+  position: number;
+
   dna: string;
   protein: string;
+
   type: string;
-  impact: Impact;
-  confidence: number;
+
+  demoLabel?: string;
 };
 
 export const genes: Gene[] = [
@@ -31,13 +36,71 @@ export const genes: Gene[] = [
 ];
 
 export const variants: Variant[] = [
-  { id: "GM-TP53-0743", gene: "TP53", dna: "c.743G>A", protein: "p.Arg248His", type: "Missense", impact: "High", confidence: 87 },
-  { id: "GM-TP53-0524", gene: "TP53", dna: "c.524C>G", protein: "p.Pro175Arg", type: "Missense", impact: "Moderate", confidence: 79 },
-  { id: "GM-BRCA1-1513", gene: "BRCA1", dna: "c.1513G>T", protein: "p.Val505Leu", type: "Missense", impact: "Moderate", confidence: 84 },
-  { id: "GM-CFTR-2199", gene: "CFTR", dna: "c.2199C>T", protein: "p.Phe733Cys", type: "Missense", impact: "Moderate", confidence: 79 },
-  { id: "GM-HBB-0020", gene: "HBB", dna: "c.20A>T", protein: "p.Glu6Val", type: "Missense", impact: "High", confidence: 96 },
-  { id: "GM-APOE-3920", gene: "APOE", dna: "c.3920C>T", protein: "p.Ser130Cys", type: "Missense", impact: "Low", confidence: 88 },
-  { id: "GM-MTHFR-0667", gene: "MTHFR", dna: "c.667C>T", protein: "p.Ala222Val", type: "Missense", impact: "Moderate", confidence: 82 },
+  {
+    id: "GM-TP53-R248H",
+    gene: "TP53",
+    chromosome: "17",
+    position: 7674220,
+    dna: "c.743G>A",
+    protein: "p.Arg248His",
+    type: "Missense",
+    demoLabel: "Flagship demo",
+  },
+
+  {
+    id: "GM-APOE-R176C",
+    gene: "APOE",
+    chromosome: "19",
+    position: 44908822,
+    dna: "c.526C>T",
+    protein: "p.Arg176Cys",
+    type: "Missense",
+    demoLabel: "Verified demo",
+  },
+
+  {
+    id: "GM-BRCA1-C64G",
+    gene: "BRCA1",
+    chromosome: "17",
+    position: 43106478,
+    dna: "c.190T>G",
+    protein: "p.Cys64Gly",
+    type: "Missense",
+    demoLabel: "Verified demo",
+  },
+
+  {
+    id: "GM-CFTR-D110H",
+    gene: "CFTR",
+    chromosome: "7",
+    position: 117530953,
+    dna: "c.328G>C",
+    protein: "p.Asp110His",
+    type: "Missense",
+    demoLabel: "Verified demo",
+  },
+
+  {
+    id: "GM-HBB-G75R",
+    gene: "HBB",
+    chromosome: "11",
+    position: 5226669,
+    dna: "c.223G>C",
+    protein: "p.Gly75Arg",
+    type: "Missense",
+    demoLabel: "Verified demo",
+  },
+
+  {
+    id: "GM-MTHFR-R157Q",
+    gene: "MTHFR",
+    chromosome: "1",
+    position: 11801166,
+    dna: "c.470G>A",
+    protein: "p.Arg157Gln",
+    type: "Missense",
+    demoLabel: "Verified demo",
+  },
 ];
 
 export const recentAnalyses = [

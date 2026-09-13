@@ -1,846 +1,646 @@
-# GeneMirror Insights
+# 🧬 GeneMirror AI
 
-Build a complete, polished, modern frontend for a project called GeneMirror AI.
+### Explainable Intelligence for Genetic Variant Analysis
 
-Project concept
+GeneMirror AI is an Explainable AI platform for computational analysis of human missense genetic variants.
 
-GeneMirror AI is an Explainable AI platform for analyzing and visualizing genetic variants.
+The system combines genomic variant validation, machine-learning-based variant effect prediction, confidence calibration, explainable AI, protein-level context, and grounded scientific explanations within a unified research interface.
 
-The product allows users to:
+GeneMirror AI is designed for **research and educational use** and does not provide clinical diagnosis, treatment recommendations, or medical advice.
 
- Select a gene
+---
 
- Select a curated genetic variant
+## 🎯 Problem Statement
 
- Compare the reference DNA sequence with the variant sequence
+Interpreting the potential impact of genetic variants is complex, and many computational prediction systems provide results without clearly explaining why a variant receives a particular prediction.
 
- View the corresponding protein-level change
+GeneMirror AI addresses this gap by using Explainable AI to analyze human missense variants, predict their potential impact, estimate prediction confidence, and provide interpretable evidence and protein-level context through a unified research platform.
 
- View an AI-predicted impact score
+---
 
- View an explainable AI breakdown showing why the model gave that prediction
+## 💡 Proposed Solution
 
- Explore a visual protein representation
+GeneMirror AI provides an end-to-end computational workflow:
 
- Ask an AI Scientist assistant to explain the results in simple or technical language
-
-Important development rule
-
-Build FRONTEND ONLY.
-
-Do NOT implement:
-
- backend
-
- FastAPI
-
- Flask
-
- database
-
- authentication backend
-
- APIs
-
- ML models
-
- real genomic processing
-
- real LLM integration
-
- real file processing
-
-Use mock/static data only.
-
-However, structure the frontend cleanly so that backend APIs can easily be connected later.
-
-Design Direction
-
-Create a premium futuristic biotech / AI research interface.
-
-The UI should feel like a combination of:
-
- modern genomics platform
-
- scientific research dashboard
-
- AI laboratory software
-
- futuristic medical-tech interface
-
-Avoid making it look like:
-
- a hospital website
-
- a generic admin dashboard
-
- a colorful student project
-
- a basic Bootstrap layout
-
-The design should look suitable for an AI Innovation Challenge presentation.
-
-Visual Theme
-
-Use a dark futuristic biotechnology theme.
-
-Suggested colors:
-
- Main background: #07111F
-
- Secondary background: #0C1828
-
- Card background: #111F32
-
- Primary cyan: #22D3EE
-
- Biotechnology violet: #8B5CF6
-
- DNA blue: #38BDF8
-
- Success green: #22C55E
-
- Warning amber: #F59E0B
-
- Critical red: #EF4444
-
- Main text: #F8FAFC
-
- Secondary text: #94A3B8
-
- Borders: subtle blue/cyan transparent borders
-
-Use gradients only subtly.
-
-Use soft glow effects around important DNA/AI elements.
-
-Do not overuse neon.
-
-Typography
-
-Use a modern clean font such as:
-
- Inter
-
- Manrope
-
- Geist
-
-Use bold headings and clean readable body text.
-
-Scientific values should use a slightly technical/monospaced appearance where appropriate.
-
-Application Layout
-
-Use a fixed left sidebar and a top navigation bar.
-
-Sidebar should contain:
-
- Overview
-
- Genome Explorer
-
- Gene Mirror
-
- Protein Explorer
-
- XAI Lab
-
- AI Scientist
-
-At the bottom of the sidebar show:
-
- GeneMirror AI logo
-
- version text such as Research Prototype v1.0
-
-Top navbar should contain:
-
- current page title
-
- small project status badge: Simulation Mode
-
- notification icon
-
- profile/avatar placeholder
-
-PAGE 1 — Overview Dashboard
-
-Create a visually impressive landing dashboard.
-
-Header:
-
-GeneMirror AI
-
-Subtitle:
-
-Explainable Intelligence for Genetic Variant Analysis
-
-Add a short statement:
-
-Analyze, compare and understand the predicted effects of genetic variants through AI-powered computational insights.
-
-Create four KPI cards:
-
- Genes Available — 12
-
- Curated Variants — 248
-
- Variants Analyzed — 1,372
-
- Average Model Confidence — 87.4%
-
-Use demo values only.
-
-Add a large central section called:
-
-Variant Analysis Pipeline
-
-Show an interactive visual flow:
-
-DNA Variant → Sequence Analysis → Protein Context → AI Prediction → XAI Explanation
-
-Each stage should appear as a connected visual card/node.
-
-Add another panel:
-
-Recent Analyses
-
-Use a table with mock data containing:
-
- Gene
-
- Variant
-
- Protein Change
-
- Predicted Impact
-
- Confidence
-
- Status
-
-Example rows:
-
- BRCA1
-
- CFTR
-
- TP53
-
- HBB
-
- APOE
-
-Use status pills like:
-
- Low
-
- Moderate
-
- High
-
-Add a small panel called:
-
-Model Confidence Distribution
-
-Create a clean mock bar/chart visualization.
-
-PAGE 2 — Genome Explorer
-
-Create a page for browsing genes and variants.
-
-Top section:
-
-Search Genes
-
-Include:
-
- search bar
-
- gene category filter
-
- chromosome filter
-
-Below show gene cards.
-
-Each card should display:
-
- gene symbol
-
- full gene name
-
- chromosome
-
- number of curated variants
-
- short description
-
- View Gene button
-
-Use mock gene entries such as:
-
- BRCA1
-
- TP53
-
- CFTR
-
- HBB
-
- APOE
-
- MTHFR
-
-Do not provide clinical or medical advice.
-
-When a gene is selected, show a detailed side panel with:
-
- gene symbol
-
- gene description
-
- chromosome
-
- sequence length
-
- protein name
-
- number of curated variants
-
-Below that display a table of variants with:
-
- Variant ID
-
- DNA Change
-
- Protein Change
-
- Type
-
- Predicted Impact
-
- Confidence
-
-Add a button:
-
-Open in Gene Mirror
-
-This button should navigate to the Gene Mirror page using frontend state only.
-
-PAGE 3 — Gene Mirror
-
-This is the MAIN flagship page.
-
-Design this page to be the most visually impressive part of the application.
-
-Header:
-
-Gene Mirror
-
-Subtitle:
-
-Compare reference and variant sequences side by side.
-
-At the top add selectors:
-
- Select Gene
-
- Select Variant
-
-Use static data.
-
-Example:
-
-Gene: TP53
-
-Variant: c.743G>A
-
-Main Mirror Comparison
-
-Create two large side-by-side panels.
-
-LEFT PANEL
-
-Title:
-
-REFERENCE
-
-Show:
-
- reference DNA sequence
-
- highlighted nucleotide position
-
- reference amino acid
-
- protein position
-
- model score
-
-Example:
-
-DNA:
-
-... A C G T G C C A G T ...
-
-Highlight the reference nucleotide.
-
-Show:
-
-Protein:
-
-Arginine
-
-Score:
-
-0.14
-
-Prediction badge:
-
-LOW IMPACT
-
-RIGHT PANEL
-
-Title:
-
-VARIANT
-
-Show:
-
- variant DNA sequence
-
- highlighted changed nucleotide
-
- changed amino acid
-
- protein position
-
- predicted score
-
-Example:
-
-DNA:
-
-... A C G T A C C A G T ...
-
-Highlight the changed nucleotide.
-
-Protein:
-
-Histidine
-
-Score:
-
-0.87
-
-Prediction badge:
-
-HIGH IMPACT
-
-Between both panels add a central visual connector:
-
-REFERENCE → VARIANT
-
-and show the mutation:
-
-G → A
-
-Add subtle animation/glow highlighting the difference.
-
-Impact Comparison Section
-
-Below the mirror create cards comparing:
-
- Sequence Context
-
- Conservation Score
-
- Protein Region Importance
-
- Amino Acid Difference
-
- Predicted Functional Impact
-
-Show reference vs variant values.
-
-Impact Meter
-
-Create a large gauge/progress indicator:
-
-Predicted Variant Effect Score
-
-Example:
-
-0.87 / 1.00
-
-Status:
-
-High Predicted Impact
-
-Add text:
-
-Computational prediction only — not a clinical diagnosis.
-
-This disclaimer should always be visible.
-
-PAGE 4 — Protein Explorer
-
-Create a modern protein visualization page.
-
-Since there is no backend or real 3D viewer yet, create a placeholder interactive protein visualization card.
-
-It should visually resemble a 3D protein structure using:
-
- abstract molecular shapes
-
- connected chains
-
- highlighted mutation point
-
-Show:
-
-Protein Information
-
- Protein Name
-
- Gene
-
- Protein Length
-
- Variant Position
-
- Amino Acid Change
-
-Example:
-
-Arg248His
-
-Highlight the affected residue with a glowing marker.
-
-Add a control panel:
-
- Rotate
-
- Zoom
-
- Reset View
-
- Highlight Variant
-
-These buttons only need frontend interactions.
-
-Add cards showing:
-
- Structural Region
-
- Conservation
-
- Local Environment
-
- Predicted Stability Change
-
-Use mock data.
-
-PAGE 5 — XAI Lab
-
-This should focus entirely on explainability.
-
-Header:
-
-XAI Lab
-
-Subtitle:
-
-Understand why the model produced its prediction.
-
-Create a large section:
-
-Prediction Explanation
-
-Show:
-
-Predicted Impact: HIGH
-
-Model Confidence: 87%
-
-Create a horizontal feature-importance chart using mock values:
-
- Evolutionary Conservation — 38%
-
- Protein Region Context — 27%
-
- Amino Acid Properties — 20%
-
- Sequence Context — 15%
-
-Use animated bars.
-
-Add another card:
-
-Key Model Drivers
-
-Show explanations such as:
-
- High evolutionary conservation at affected position
-
- Strong amino-acid property change
-
- Variant located within a functionally important protein region
-
- Sequence context differs from common benign patterns
-
-Add a section:
-
-Model Reasoning Summary
-
-Display:
-
-The model prediction is primarily influenced by conservation and protein-region context. These features contribute most strongly to the elevated effect score.
-
-Add another section:
-
-Confidence Breakdown
-
-Show:
-
- Data Quality
-
- Feature Reliability
-
- Model Agreement
-
- Prediction Stability
-
-Use progress bars.
-
-PAGE 6 — AI Scientist
-
-Create an AI assistant interface.
-
-Name:
-
+```text
+Genetic Variant
+      ↓
+Variant Validation
+      ↓
+Genomic Annotation
+      ↓
+Variant Effect Prediction
+      ↓
+Confidence Calibration
+      ↓
+Explainable AI
+      ↓
+Protein Context Analysis
+      ↓
 GeneMirror Scientist
+      ↓
+Interactive Research Interface
+```
 
-Subtitle:
+Instead of returning only a prediction score, GeneMirror AI provides multiple layers of evidence so users can understand how the system reached its computational result.
 
-Ask questions about your variant analysis.
+---
 
-The chat UI should look premium and scientific.
+## ✨ Core Features
 
-Add suggested prompts:
+### 🧬 Genome Explorer
 
- Explain this variant simply
+Browse curated genes and missense variants through an interactive interface.
 
- Why is the impact score high?
+Current demonstration genes include:
 
- What does conservation mean?
+- TP53
+- BRCA1
+- CFTR
+- HBB
+- APOE
+- MTHFR
 
- Explain the protein change
+---
 
- Summarize this analysis
+### 🪞 Gene Mirror
 
-Since there is no backend, clicking suggested prompts should return predefined mock responses.
+The flagship analysis interface compares the reference and variant representations and displays the live computational analysis.
 
-Add two modes:
+Outputs include:
 
-Student Mode
+- Raw model score
+- Calibrated probability
+- Predicted impact class
+- Confidence score
+- Uncertainty score
+- Confidence band
+- Reference and alternate amino acids
 
-Simplified explanations.
+Impact classes are presented as:
 
-Research Mode
+```text
+LOW
+MODERATE
+HIGH
+```
 
-More technical explanations.
+These classes represent computational model outputs and must not be interpreted as clinical classifications.
 
-Use a toggle switch.
+---
 
-Example mock response:
+### 🔬 Genomic Annotation
 
-This variant changes one nucleotide in the DNA sequence, which alters the corresponding amino acid in the protein. The model assigns a high impact score mainly because the affected position is strongly conserved and lies within an important protein region.
+GeneMirror AI uses genomic annotation to verify variant identity and consequence.
 
-Always include:
+The annotation pipeline:
 
-This information is for computational analysis and educational use only.
+- validates GRCh38 genomic coordinates
+- verifies reference and alternate alleles
+- identifies transcript consequences
+- prioritizes appropriate transcripts
+- verifies missense consequences
+- compares DNA and protein-level representations
 
-Interaction Requirements
+Transcript selection prioritizes:
 
-Make the interface feel like a real application.
+```text
+MANE Select
+    ↓
+MANE Plus Clinical
+    ↓
+Canonical Transcript
+    ↓
+Protein-Coding Transcript
+    ↓
+Missense Consequence
+```
 
-Implement frontend-only interactions such as:
+Annotation results are locally cached to improve repeated analysis performance.
 
- sidebar navigation
+---
 
- dropdown selections
+### 🤖 Variant Effect Prediction
 
- tabs
+The prediction engine uses a:
 
- search
+**HistGradientBoostingClassifier**
 
- filtering
+The model was trained using a processed ClinVar-derived missense variant dataset.
 
- hover effects
+The prediction target is a:
 
- animated progress bars
+> ClinVar-derived pathogenicity proxy for computational variant-effect modeling.
 
- modal windows
+The model output is not a clinical probability.
 
- selected variant states
+Model information:
 
- AI chat mock responses
+```text
+Model: HistGradientBoostingClassifier
+Model Version: GeneMirror-v1-Sprint4
+Input Features: 28
+```
 
- view transitions
+Held-out evaluation included:
 
- responsive cards
+```text
+ROC-AUC ≈ 0.77
+PR-AUC  ≈ 0.66
+MCC     ≈ 0.40
+```
 
- tooltips
+---
 
- protein visualization placeholder controls
+## 📊 Explainable AI — XAI Lab
 
- gene selection
+GeneMirror AI does not present the prediction as a black-box result.
 
- variant selection
+The XAI engine estimates how individual model features influence the prediction relative to a reference input.
 
-No backend requests should occur.
+Examples of model features include:
 
-Frontend Architecture
+- amino-acid molecular-weight differences
+- hydrophobicity differences
+- charge changes
+- reference amino-acid properties
+- sequence-derived properties
+- variant-related features
 
-Use:
+Feature effects are categorized as:
 
- React
+```text
+Higher Impact
+Lower Impact
+Neutral
+```
 
- TypeScript
+The explanation is a model interpretation and should not be treated as proof of biological causation.
 
- Tailwind CSS
+---
 
- reusable components
+## 🎯 Confidence Calibration
 
- clean component structure
+GeneMirror AI explicitly separates:
 
-If available, use:
+```text
+Raw Model Score
+≠
+Calibrated Probability
+≠
+Confidence
+≠
+Impact Class
+```
 
- shadcn/ui
+Isotonic calibration is used to calibrate model outputs.
 
- Lucide icons
+Prediction confidence is derived from the uncertainty of the calibrated probability using normalized binary entropy.
 
- Recharts for charts
+The interface exposes both:
 
-Create mock data inside local frontend files.
+- Confidence
+- Uncertainty
 
-Use clean components such as:
+This prevents raw classifier scores from being presented as certainty.
 
- Sidebar
+---
 
- TopNavbar
+## 🧪 Protein Explorer
 
- KPICard
+Protein-level context is retrieved using UniProtKB.
 
- GeneCard
+The protein engine provides:
 
- VariantTable
+- UniProt accession
+- protein name
+- protein length
+- affected residue
+- local sequence window
+- reference residue verification
+- overlapping protein annotations
+- nearby protein annotations
+- visualization tracks
 
- SequenceViewer
+The affected residue is verified against the protein sequence before the complete analysis is accepted.
 
- MirrorComparison
+---
 
- ImpactGauge
+## 🧠 GeneMirror Scientist
 
- FeatureImportance
+GeneMirror Scientist converts structured analysis results into a readable scientific explanation.
 
- ProteinViewer
+It receives grounded information from:
 
- ScientistChat
+- variant validation
+- prediction engine
+- confidence calibration
+- XAI engine
+- protein context engine
 
-Keep backend integration in mind by isolating mock data from UI components.
+The Scientist does **not** calculate the scientific prediction itself.
 
-For example, store data under:
+Its role is to explain already-computed structured evidence.
 
-src/data/mockGenes.ts
+The system includes a deterministic fallback so explanations remain available even when an external language-model provider is disabled or unavailable.
 
-src/data/mockVariants.ts
+The Scientist is constrained from inventing:
 
-src/data/mockAnalysis.ts
+- unsupported disease associations
+- treatment recommendations
+- genetic modification instructions
+- unsupported biological mechanisms
+- clinical conclusions
 
-Later these will be replaced with backend API calls.
+---
 
-Responsive Design
+## 🏗️ System Architecture
 
-Optimize primarily for:
+```text
+┌──────────────────────────────────────┐
+│          React + TypeScript          │
+│              Frontend                │
+└──────────────────┬───────────────────┘
+                   │
+                   │ REST API
+                   ▼
+┌──────────────────────────────────────┐
+│              FastAPI                 │
+│               Backend                │
+└──────────────────┬───────────────────┘
+                   │
+        ┌──────────┼──────────┐
+        ▼          ▼          ▼
+   Validation   Prediction   Protein
+   & VEP        + XAI        Context
+        │          │          │
+        └──────────┼──────────┘
+                   ▼
+          GeneMirror Scientist
+                   │
+                   ▼
+          Unified Analysis API
+```
 
-1920 × 1080 desktop presentation
+The main frontend analysis flow uses:
 
-because this project will be demonstrated on a laptop/projector.
+```text
+POST /api/v1/analysis
+```
 
-Also make it reasonably responsive for smaller laptop screens.
+This endpoint orchestrates the complete GeneMirror analysis pipeline.
 
-Do not prioritize mobile design over desktop.
+---
 
-Safety and Scientific Communication
+## 🔌 API Endpoints
 
-The frontend must never present results as medical diagnosis or treatment advice.
+GeneMirror AI exposes the following FastAPI endpoints:
 
-Use terminology such as:
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/v1/health` | API health check |
+| POST | `/api/v1/variants/validate` | Variant validation |
+| POST | `/api/v1/predict` | Raw model prediction |
+| POST | `/api/v1/xai` | Calibrated prediction and XAI |
+| POST | `/api/v1/protein-context` | Protein context |
+| POST | `/api/v1/scientist` | Grounded explanation |
+| POST | `/api/v1/analysis` | Complete unified analysis |
 
- Predicted impact
+Interactive API documentation is available while the backend is running at:
 
- Computational estimate
+```text
+http://127.0.0.1:8000/docs
+```
 
- Model confidence
+---
 
- Variant effect prediction
+## 📚 Dataset
 
-Avoid definitive terminology such as:
+The primary variant source is **ClinVar**.
 
- This mutation causes disease
+The data pipeline performs:
 
- This person has a disease
+```text
+Raw ClinVar
+    ↓
+Validation
+    ↓
+GRCh38 Filtering
+    ↓
+Germline SNV Filtering
+    ↓
+Missense Selection
+    ↓
+Allele Validation
+    ↓
+Normalization
+    ↓
+Duplicate Removal
+    ↓
+Processed Dataset
+```
 
- This gene should be edited
+Final processed dataset statistics:
 
- Recommended genetic modification
+```text
+Variants:     2,431,963
+Genes:        19,116
+Variant Type: Missense SNVs
+Assembly:     GRCh38
+```
 
-Always display a subtle disclaimer:
+Large raw and processed datasets are intentionally excluded from Git version control.
 
-GeneMirror AI provides computational predictions for research and educational purposes and is not a diagnostic or clinical decision-making system.
+---
+
+## 🧬 Competition Demo Variants
+
+The frontend contains curated variants for demonstrating the complete pipeline.
+
+| Gene | DNA Change | Protein Change |
+|---|---|---|
+| TP53 | c.743G>A | p.Arg248His |
+| BRCA1 | c.190T>G | p.Cys64Gly |
+| CFTR | c.328G>C | p.Asp110His |
+| HBB | c.223G>C | p.Gly75Arg |
+| APOE | c.526C>T | p.Arg176Cys |
+| MTHFR | c.470G>A | p.Arg157Gln |
+
+### Flagship Demonstration
+
+```text
+Gene: TP53
+DNA Change: c.743G>A
+Protein Change: p.Arg248His
+```
+
+This variant is used to demonstrate the complete GeneMirror workflow across Gene Mirror, XAI Lab, Protein Explorer, and GeneMirror Scientist.
+
+---
 
-Final Goal
+## 🖥️ Frontend
+
+The frontend is built using:
 
-The final frontend should feel like a real AI biotechnology research product, not a student dashboard.
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- TanStack
+- Recharts
+- Lucide
+- shadcn/Radix components
 
-Prioritize:
+Main pages:
 
- Premium visual quality
+```text
+Overview
+Genome Explorer
+Gene Mirror
+Protein Explorer
+XAI Lab
+AI Scientist
+```
 
- Strong Gene Mirror reference-vs-variant comparison
+---
 
- Clear XAI visualizations
+## ⚙️ Backend
 
- Smooth interactions
+The backend uses:
 
- Scientific appearance
+- Python
+- FastAPI
+- Pydantic
+- pandas
+- NumPy
+- scikit-learn
+- requests
+- Uvicorn
 
- Easy future backend integration
+Scientific resources include:
 
-Use meaningful mock data throughout so every page looks complete and demo-ready even without a backend.
+- ClinVar
+- Ensembl VEP
+- UniProtKB
 
-Do not build or connect any backend functionality yet.
+---
 
-This project was built with [Lovable](https://lovable.dev).
+## 📁 Project Structure
 
-## Build with Lovable
+```text
+dna-explain-nexus/
+│
+├── backend/
+│   ├── annotation/
+│   ├── api/
+│   ├── calibration/
+│   ├── modeling/
+│   ├── protein/
+│   ├── scientist/
+│   └── xai/
+│
+├── data/
+│   ├── raw/
+│   ├── interim/
+│   └── processed/
+│
+├── docs/
+│
+├── models/
+│
+├── src/
+│   ├── components/
+│   ├── data/
+│   ├── routes/
+│   └── services/
+│       └── api/
+│
+├── tests/
+│
+├── README.md
+└── package.json
+```
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/c8f39fc4-fc00-46c3-a3b0-225fdf710b04).
+---
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+## 🚀 Running GeneMirror AI Locally
 
-## Development
+### 1. Clone the repository
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+```bash
+git clone https://github.com/sarthak140706-spec/dna-explain-nexus.git
+cd dna-explain-nexus
+```
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+### 2. Create and activate the Python environment
+
+Windows PowerShell:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+### 3. Install backend dependencies
+
+```powershell
+pip install -r backend\requirements.txt
+```
+
+### 4. Start the FastAPI backend
+
+For a stable demonstration run:
+
+```powershell
+uvicorn backend.api.main:app --host 127.0.0.1 --port 8000
+```
+
+Backend:
+
+```text
+http://127.0.0.1:8000
+```
+
+### 5. Install frontend dependencies
+
+In another terminal:
+
+```powershell
+npm install
+```
+
+### 6. Start the frontend
+
+```powershell
 npm run dev
 ```
+
+Frontend:
+
+```text
+http://localhost:8080
+```
+
+---
+
+## 🧪 Testing
+
+GeneMirror AI includes automated tests covering:
+
+- API integration
+- scientific consistency
+- cross-component consistency
+- safety guardrails
+- multiple genes and variants
+- failure conditions
+- malformed input
+- genomic validation failures
+- protein reference mismatches
+- unsupported variants
+
+Run the complete test suite using:
+
+```powershell
+python -m pytest tests -q
+```
+
+---
+
+## 🔒 Safety & Scientific Boundaries
+
+GeneMirror AI is an **in-silico research prototype**.
+
+It does not:
+
+- diagnose genetic disease
+- determine whether a person has a medical condition
+- recommend treatment
+- provide medical advice
+- design gene-editing experiments
+- generate CRISPR guides
+- recommend genetic modification
+- provide wet-lab protocols
+
+A LOW predicted impact does not mean that a variant is medically safe or benign.
+
+A HIGH predicted impact does not mean that a variant is disease-causing or clinically pathogenic.
+
+Predictions must be interpreted only as computational model outputs.
+
+---
+
+## ⚠️ Disclaimer
+
+> **GeneMirror AI provides computational predictions for research and educational purposes only. It does not provide clinical diagnosis, treatment recommendations, or medical advice.**
+
+---
+
+## 🛠️ Development Roadmap
+
+GeneMirror AI was developed through ten structured sprints:
+
+```text
+Sprint 1  — Scientific Scope, Dataset & Variant Definition
+Sprint 2  — Genomic Data Ingestion & Validation
+Sprint 3  — Sequence Annotation & Variant Consequence
+Sprint 4  — Variant Effect Prediction Model
+Sprint 5  — Explainable AI & Confidence Calibration
+Sprint 6  — Protein Context & Visualization Data
+Sprint 7  — GeneMirror Scientist
+Sprint 8  — FastAPI Backend & API Contracts
+Sprint 9  — Frontend Integration
+Sprint 10 — Testing, Validation, Safety & Competition Demo
+```
+
+---
+
+## 🎓 AI Innovation Challenge 2026
+
+GeneMirror AI was developed as a software-based AI research prototype for the **AI Innovation Challenge 2026**.
+
+Primary competition domain:
+
+**Healthcare & Digital Well-being**
+
+Technical focus:
+
+**Explainable AI for computational genetic variant interpretation**
+
+---
+
+## 👨‍💻 Author
+
+**Sarthak Jadhav**
+
+B.Tech — Artificial Intelligence & Data Science  
+AISSMS Institute of Information Technology, Pune
+
+---
+
+## 📌 Project Status
+
+**Research Prototype — v1.0**
+
+The complete pipeline currently supports:
+
+```text
+Variant Selection
+      ↓
+Scientific Validation
+      ↓
+Genomic Annotation
+      ↓
+ML Prediction
+      ↓
+Confidence Calibration
+      ↓
+Explainable AI
+      ↓
+Protein Context
+      ↓
+Grounded Scientist Explanation
+      ↓
+Interactive Visualization
+```
+
+GeneMirror AI demonstrates how explainability can make computational genetic variant prediction more transparent and interpretable.

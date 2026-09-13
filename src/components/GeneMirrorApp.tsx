@@ -267,35 +267,41 @@ function buildVariantRequest(
       proteinMatch[2],
     );
 
-  return {
-    gene_symbol:
-      variant.gene,
-
-    reference_allele:
-      dnaMatch[
-        2
-      ].toUpperCase(),
-
-    alternate_allele:
-      dnaMatch[
-        3
-      ].toUpperCase(),
-
-    protein_position:
-      proteinPosition,
-
-    reference_amino_acid:
-      referenceAminoAcid,
-
-    alternate_amino_acid:
-      alternateAminoAcid,
-
-    dna_change:
-      variant.dna,
-
-    protein_change:
-      `${referenceAminoAcid}${proteinPosition}${alternateAminoAcid}`,
-  };
+    return {
+      gene_symbol:
+        variant.gene,
+    
+      chromosome:
+        variant.chromosome,
+    
+      position:
+        variant.position,
+    
+      reference_allele:
+        dnaMatch[
+          2
+        ].toUpperCase(),
+    
+      alternate_allele:
+        dnaMatch[
+          3
+        ].toUpperCase(),
+    
+      protein_position:
+        proteinPosition,
+    
+      reference_amino_acid:
+        referenceAminoAcid,
+    
+      alternate_amino_acid:
+        alternateAminoAcid,
+    
+      dna_change:
+        variant.dna,
+    
+      protein_change:
+        `${referenceAminoAcid}${proteinPosition}${alternateAminoAcid}`,
+    };
 }
 
 function parseVariantDisplay(
@@ -744,7 +750,7 @@ function MirrorPage({
             .prediction
             .impact_class,
         )
-      : activeVariant.impact;
+      : null;
 
   const rawScore =
     analysis
@@ -2307,7 +2313,7 @@ function ExplorerPage({
                             .prediction
                             .impact_class,
                         )
-                      : variant.impact;
+                      : null;
 
                   const confidence =
                     analysis
@@ -2320,7 +2326,7 @@ function ExplorerPage({
                           ) *
                             100,
                         )
-                      : variant.confidence;
+                      : null;
 
                   const isLoading =
                     loadingVariantId ===
@@ -2358,18 +2364,23 @@ function ExplorerPage({
                       </td>
 
                       <td className="px-3 py-3">
-                        <StatusPill
-                          impact={
-                            impact
-                          }
-                        />
+                        {impact ? (
+                          <StatusPill
+                            impact={
+                              impact
+                            }
+                          />
+                        ) : (
+                          <span className="font-mono text-[11px] text-muted-foreground">
+                            Not analyzed
+                          </span>
+                        )}
                       </td>
 
                       <td className="px-3 py-3 text-right font-mono text-cyan">
-                        {
-                          confidence
-                        }
-                        %
+                        {confidence !== null
+                          ? `${confidence}%`
+                          : "—"}
                       </td>
 
                       <td className="px-5 py-3 text-right">

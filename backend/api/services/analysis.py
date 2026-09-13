@@ -386,6 +386,16 @@ def analyze_variant(
         ) from error
 
     # --------------------------------------------------------
+    # Stop unified analysis if scientific validation fails
+    # --------------------------------------------------------
+
+    if validation.valid is not True:
+
+        raise UnifiedAnalysisValidationError(
+            "Variant failed scientific validation: "
+            f"{validation.validation_status}"
+        )
+    # --------------------------------------------------------
     # 2. Prediction + XAI + calibration + confidence
     # --------------------------------------------------------
 
