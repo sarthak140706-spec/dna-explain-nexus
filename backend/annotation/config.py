@@ -64,8 +64,8 @@ VEP_REGION_ENDPOINT = (
 )
 
 
-# Ensembl currently allows a maximum of
-# 200 variants in a VEP POST request.
+# Ensembl allows batching multiple variants
+# in one VEP POST request.
 VEP_BATCH_SIZE = 200
 
 
@@ -92,10 +92,17 @@ SUPPORTED_CHROMOSOMES = {
 # Request settings
 # --------------------------------------------------
 
+# Increased for cloud deployment because external
+# Ensembl requests may occasionally respond slowly.
 REQUEST_TIMEOUT_SECONDS = 60
 
+# Retry transient network / Ensembl failures.
 MAX_RETRIES = 3
 
+
+# --------------------------------------------------
+# Directory setup
+# --------------------------------------------------
 
 def ensure_annotation_directories():
     """
@@ -117,6 +124,10 @@ def ensure_annotation_directories():
         )
 
 
+# --------------------------------------------------
+# Local configuration verification
+# --------------------------------------------------
+
 if __name__ == "__main__":
 
     ensure_annotation_directories()
@@ -125,7 +136,9 @@ if __name__ == "__main__":
         "GeneMirror Annotation Configuration"
     )
 
-    print("-" * 45)
+    print(
+        "-" * 45
+    )
 
     print(
         f"\nProject root:"
@@ -160,6 +173,16 @@ if __name__ == "__main__":
     print(
         f"\nVEP batch size:"
         f"\n{VEP_BATCH_SIZE}"
+    )
+
+    print(
+        f"\nRequest timeout:"
+        f"\n{REQUEST_TIMEOUT_SECONDS} seconds"
+    )
+
+    print(
+        f"\nMaximum retries:"
+        f"\n{MAX_RETRIES}"
     )
 
     print(
