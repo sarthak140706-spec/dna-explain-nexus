@@ -1,0 +1,67 @@
+{
+    "model": "HistGradientBoostingClassifier",
+    "target_description": "ClinVar-derived pathogenicity proxy for computational variant-effect modeling",
+    "model_parameters": {
+        "learning_rate": 0.08,
+        "max_iter": 300,
+        "max_leaf_nodes": 31,
+        "min_samples_leaf": 30,
+        "l2_regularization": 1.0,
+        "class_weight": "balanced",
+        "random_state": 42
+    },
+    "predictive_features": [
+        "protein_position",
+        "ref_molecular_weight",
+        "alt_molecular_weight",
+        "delta_molecular_weight",
+        "abs_delta_molecular_weight",
+        "ref_hydrophobicity",
+        "alt_hydrophobicity",
+        "delta_hydrophobicity",
+        "abs_delta_hydrophobicity",
+        "ref_charge",
+        "alt_charge",
+        "delta_charge",
+        "charge_changed",
+        "ref_polar",
+        "alt_polar",
+        "polarity_changed",
+        "ref_aromatic",
+        "alt_aromatic",
+        "aromaticity_changed",
+        "ref_special",
+        "alt_special",
+        "special_residue_changed",
+        "is_transition",
+        "is_transversion",
+        "reference_aa",
+        "alternate_aa",
+        "reference_allele",
+        "alternate_allele"
+    ],
+    "removed_redundant_feature": "protein_position_log",
+    "iterations_used": 239,
+    "validation": {
+        "dataset": "validation",
+        "rows": 29640,
+        "accuracy": 0.7175775978407557,
+        "balanced_accuracy": 0.7063865231956467,
+        "precision": 0.5004824984647777,
+        "recall": 0.6806251491290861,
+        "f1": 0.5768161366968303,
+        "roc_auc": 0.7761914169486159,
+        "pr_auc": 0.5934561336064031,
+        "mcc": 0.38211022716388193,
+        "confusion_matrix": [
+            [
+                15564,
+                5694
+            ],
+            [
+                2677,
+                5705
+            ]
+        ]
+    }
+}
