@@ -5,7 +5,20 @@
 /.venv/
 /.output/
 
-backend/**/__pycache__/
-backend/**/*verify*.py
+/backend/**/__pycache__/
+/backend/**/*verify*.py
+
+/backend/data_pipeline/
+
+/backend/annotation/pipeline.py
+
+/backend/modeling/dataset_builder.py
+/backend/modeling/evaluate.py
+/backend/modeling/split.py
+/backend/modeling/train.py
+
+/backend/explainability/calibration.py
+/backend/explainability/global_explainer.py
+/backend/explainability/local_explainer.py
 
 /README.md
