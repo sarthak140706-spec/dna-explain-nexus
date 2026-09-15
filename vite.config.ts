@@ -12,8 +12,4 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts.
     server: { entry: "server" },
   },
-
-  nitro: {
-    preset: "node-server",
-  },
 });
