@@ -16,9 +16,18 @@
 /backend/modeling/evaluate.py
 /backend/modeling/split.py
 /backend/modeling/train.py
+/backend/modeling/main_model.py
 
 /backend/explainability/calibration.py
 /backend/explainability/global_explainer.py
 /backend/explainability/local_explainer.py
+
+/backend/modeling/artifacts/baseline_logistic_v1.pkl
+/backend/modeling/artifacts/baseline_logistic_metrics_v1.json
+/backend/modeling/artifacts/random_forest_v1.pkl
+/backend/modeling/artifacts/random_forest_metrics_v1.json
+
+/backend/explainability/artifacts/local_explanation_example_v1.json
+/backend/explainability/artifacts/confidence_example_v1.json
 
 /README.md
