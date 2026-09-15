@@ -1,11 +1,11 @@
-data/
-docs/
-tests/
-.pytest_cache/
-.venv/
-.output/
+/data/
+/docs/
+/tests/
+/.pytest_cache/
+/.venv/
+/.output/
 
 backend/**/__pycache__/
 backend/**/*verify*.py
 
-README.md
+/README.md
