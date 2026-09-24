@@ -1,3 +1,4 @@
+
 import json
 import pickle
 import sys
@@ -64,6 +65,11 @@ from backend.modeling.predictor import (
 LOCAL_EXPLANATION_PATH = (
     ARTIFACTS_DIR
     / "local_explanation_example_v1.json"
+)
+
+REFERENCE_PROFILE_PATH = (
+    ARTIFACTS_DIR
+    / "reference_profile_v1.json"
 )
 
 NEUTRAL_THRESHOLD = 1e-6
@@ -208,6 +214,61 @@ def build_reference_profile():
 
 
 # ============================================================
+# Load saved reference profile for inference
+# ============================================================
+
+def load_reference_profile():
+
+    if not REFERENCE_PROFILE_PATH.is_file():
+
+        raise FileNotFoundError(
+            "Reference profile artifact not found: "
+            f"{REFERENCE_PROFILE_PATH}"
+        )
+
+    with open(
+        REFERENCE_PROFILE_PATH,
+        "r",
+        encoding="utf-8",
+    ) as file:
+
+        reference_values = json.load(
+            file
+        )
+
+    if not isinstance(
+        reference_values,
+        dict,
+    ):
+
+        raise ValueError(
+            "Reference profile must contain "
+            "a JSON object."
+        )
+
+    missing_features = (
+        set(FEATURE_COLUMNS)
+        - set(reference_values)
+    )
+
+    unexpected_features = (
+        set(reference_values)
+        - set(FEATURE_COLUMNS)
+    )
+
+    if missing_features or unexpected_features:
+
+        raise ValueError(
+            "Reference profile features do not "
+            "match the model features. "
+            f"Missing: {sorted(missing_features)}; "
+            f"Unexpected: {sorted(unexpected_features)}"
+        )
+
+    return reference_values
+
+
+# ============================================================
 # Convert input variant into model features
 # ============================================================
 
@@ -264,14 +325,14 @@ def prepare_variant_features(
     ]
 
     validate_variant_input(
-    {
-        "reference_allele": reference_allele,
-        "alternate_allele": alternate_allele,
-        "reference_aa": reference_aa,
-        "alternate_aa": alternate_aa,
-        "protein_position": protein_position,
-    }
-)
+        {
+            "reference_allele": reference_allele,
+            "alternate_allele": alternate_allele,
+            "reference_aa": reference_aa,
+            "alternate_aa": alternate_aa,
+            "protein_position": protein_position,
+        }
+    )
 
     dataframe = pd.DataFrame(
         [
@@ -386,7 +447,7 @@ def explain_variant(
     if reference_values is None:
 
         reference_values = (
-            build_reference_profile()
+            load_reference_profile()
         )
 
     # --------------------------------------------------------
