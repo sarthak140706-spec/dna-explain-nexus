@@ -1,0 +1,42 @@
+{
+  "artifact_type": "impact_mapping",
+  "impact_mapping_version": "GeneMirror-Impact-Mapping-v1",
+  "calibration_version": "GeneMirror-Calibration-v1",
+  "model_name": "HistGradientBoostingClassifier",
+  "model_version": "GeneMirror-v1-Sprint4",
+  "target_interpretation": "ClinVar-derived pathogenicity proxy for computational variant-effect modeling",
+  "calibration_method": "isotonic",
+  "threshold_strategy": "For each extreme region, require at least 5% OOF validation coverage and then maximize class-specific purity. LOW maximizes benign-like purity; HIGH maximizes pathogenic-like purity. MODERATE contains the intermediate region.",
+  "minimum_extreme_region_fraction": 0.05,
+  "low_threshold": 0.045454545454545456,
+  "high_threshold": 0.6635514018691588,
+  "low_region": {
+    "threshold": 0.045454545454545456,
+    "rows": 2239,
+    "fraction": 0.07553981106612685,
+    "benign_like_purity": 0.9620366234926306,
+    "pathogenic_like_rate": 0.03796337650736936
+  },
+  "moderate_region": {
+    "rows": 25180,
+    "fraction": 0.849527665317139,
+    "pathogenic_like_rate": 0.2631056393963463,
+    "benign_like_rate": 0.7368943606036538
+  },
+  "high_region": {
+    "threshold": 0.6635514018691588,
+    "rows": 2221,
+    "fraction": 0.07493252361673414,
+    "pathogenic_like_purity": 0.7528140477262495,
+    "benign_like_rate": 0.2471859522737505
+  },
+  "validation_rows": 29640,
+  "validation_genes": 2361,
+  "cv_strategy": "5-fold StratifiedGroupKFold using gene_symbol",
+  "cv_fold_count": 5,
+  "impact_interpretation": "LOW, MODERATE, and HIGH are computational impact categories derived from out-of-fold calibrated ClinVar-proxy probabilities on the validation dataset. They are not ClinVar classifications, clinical diagnoses, probabilities of disease, or direct measurements of biological pathogenicity.",
+  "threshold_limitation": "The HIGH region has lower proxy-class purity than the LOW region because the frozen V1 model provides weaker separation for pathogenic-like variants. The thresholds intentionally reflect observed validation performance rather than imposing arbitrary symmetric cutoffs.",
+  "test_set_used": false,
+  "research_only": true,
+  "created_at_utc": "2026-09-10T14:44:04.435189+00:00"
+}
