@@ -18,10 +18,11 @@ ARTIFACTS_DIR = (
     / "artifacts"
 )
 
-ARTIFACTS_DIR.mkdir(
-    parents=True,
-    exist_ok=True,
-)
+# Do not create directories inside the deployed application.
+# Vercel's application filesystem is read-only at runtime.
+#
+# Existing model and explainability artifacts remain at their
+# original paths and can still be read by the backend.
 
 
 # ============================================================
