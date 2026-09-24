@@ -20,7 +20,6 @@
 
 /backend/explainability/calibration.py
 /backend/explainability/global_explainer.py
-/backend/explainability/local_explainer.py
 
 /backend/modeling/artifacts/baseline_logistic_v1.pkl
 /backend/modeling/artifacts/baseline_logistic_metrics_v1.json
