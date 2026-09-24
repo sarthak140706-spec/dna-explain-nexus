@@ -1,3 +1,6 @@
+
+import os
+import tempfile
 from pathlib import Path
 
 
@@ -14,14 +17,11 @@ PROTEIN_CONTEXT_DIR = (
     / "protein_context"
 )
 
+# Packaged artifacts are read-only in production.
+# Do not create directories inside the deployed application.
 ARTIFACTS_DIR = (
     PROTEIN_CONTEXT_DIR
     / "artifacts"
-)
-
-ARTIFACTS_DIR.mkdir(
-    parents=True,
-    exist_ok=True,
 )
 
 
@@ -39,10 +39,22 @@ INTERIM_DATA_DIR = (
     / "interim"
 )
 
-PROTEIN_CACHE_DIR = (
-    INTERIM_DATA_DIR
-    / "protein_context_cache"
-)
+IS_VERCEL = bool(os.environ.get("VERCEL"))
+
+if IS_VERCEL:
+    # Vercel's deployed application directory is read-only.
+    # Temporary runtime files must be stored under /tmp.
+    PROTEIN_CACHE_DIR = (
+        Path(tempfile.gettempdir())
+        / "genemirror"
+        / "protein_context_cache"
+    )
+else:
+    # Preserve the existing cache location for local development.
+    PROTEIN_CACHE_DIR = (
+        INTERIM_DATA_DIR
+        / "protein_context_cache"
+    )
 
 PROTEIN_CACHE_DIR.mkdir(
     parents=True,
